@@ -1,7 +1,13 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
+
+const isCI = process.env.GITHUB_ACTIONS === 'true'
+const repo = 'metaball_demo'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  output: 'export',
+  basePath: isCI ? `/${repo}` : undefined,
+  assetPrefix: isCI ? `/${repo}/` : undefined,
+  trailingSlash: true,
+}
 
-export default nextConfig;
+export default nextConfig
