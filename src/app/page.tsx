@@ -147,7 +147,7 @@ export default function Home() {
     <div className="min-h-screen app-bg text-[var(--foreground)]">
       <div className="max-w-6xl mx-auto px-6 py-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-semibold">BallNet Demo</h1>
+          <h1 className="text-3xl font-semibold">MetaBall Demo</h1>
           <button
             onClick={() => {
               const html = document.documentElement

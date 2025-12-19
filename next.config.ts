@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next'
 
 const isCI = process.env.GITHUB_ACTIONS === 'true'
-const repo = 'metaball_demo'
+const repo = 'metaball-demo'
 
 const nextConfig: NextConfig = {
   output: 'export',

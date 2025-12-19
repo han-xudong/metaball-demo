@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Metaball Demo
 
-## Getting Started
+A web-based demo that runs a BallNet model of the Metaball and visualizes deformed meshes in real time.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- In-browser ONNX inference with WebWorker (`onnxruntime-web`)
+- Node displacements mapped onto a base mesh and visualized with `three.js`
+- Model loading progress with total size when available, plus input/output names
+- Interactive controls: pose sliders, dark mode toggle, orbit pan/zoom/rotate
+- Fully static export (`output: 'export'`) for easy hosting (e.g., GitHub Pages)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Quick Start
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Install: `npm install`
+- Dev server: `npm run dev` then open `http://localhost:3000`
+- Lint: `npm run lint`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Model & Assets
 
-## Learn More
+- Model loading priority: provided source → HuggingFace mirrors
+  - Model URL list: `MODEL_URLS` in `src/lib/model.ts`
+  - Base assets (vertices, faces, deform indices) try local `/assets/ball/*.txt` first, then fall back to HuggingFace
+- Optional local assets:
+  - `public/model.onnx`
+  - `public/assets/ball/surface_coordinate.txt`
+  - `public/assets/ball/surface_triangle.txt`
+  - `public/assets/ball/deform_node.txt`
 
-To learn more about Next.js, take a look at the following resources:
+## Troubleshooting
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- No model progress or load failure:
+  - Ensure HuggingFace and jsDelivr are reachable
+  - For offline use, place model and assets under `public/` (see “Model & Assets”)
+- Static deploy path issues:
+  - On GitHub Pages, `basePath` and `assetPrefix` must be set; this project configures them automatically in CI
+- Dark mode:
+  - Use the toggle button in the top-right; system preference is also respected
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This repository is under [MIT License](LICENSE).
