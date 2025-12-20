@@ -2,14 +2,6 @@
 
 A web-based demo that runs a BallNet model of the Metaball and visualizes deformed meshes in real time.
 
-## Features
-
-- In-browser ONNX inference with WebWorker (`onnxruntime-web`)
-- Node displacements mapped onto a base mesh and visualized with `three.js`
-- Model loading progress with total size when available, plus input/output names
-- Interactive controls: pose sliders, dark mode toggle, orbit pan/zoom/rotate
-- Fully static export (`output: 'export'`) for easy hosting (e.g., GitHub Pages)
-
 ## Quick Start
 
 - Install: `npm install`

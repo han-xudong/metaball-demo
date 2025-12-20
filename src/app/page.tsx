@@ -355,7 +355,7 @@ export default function Home() {
               </div>
               <div>
                 <h2 className="text-lg font-bold">Mesh Outputs</h2>
-                <div className="relative h-[500px] mt-2 rounded-2xl overflow-hidden">
+                <div className="relative h-[800px] mt-2 rounded-2xl overflow-hidden">
                   <TrimeshViewer mesh={mesh} wireframe={wireframe} color={color} dark={dark} />
                 </div>
               </div>
